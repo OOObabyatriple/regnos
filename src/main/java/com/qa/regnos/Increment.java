@@ -4,7 +4,10 @@ import java.text.DecimalFormat;
 
 public class Increment {
 
-    public String findNextValue( int twodgcode ) {
+    public String findNextValue( int twodgcode ) throws LimitException {
+        if ((twodgcode<2) | (twodgcode==50) | (twodgcode>99)){
+            throw new LimitException("Limit Exceeded");
+        }
         DecimalFormat df=new DecimalFormat("00");
         if (twodgcode>50){
             int change=twodgcode-49;
